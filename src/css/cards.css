@@ -1,0 +1,10 @@
+.img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  place-items: center;
+}
