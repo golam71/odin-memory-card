@@ -1,16 +1,13 @@
-# React + Vite
+# React memory game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Preview image of the game](live.png)
 
-Currently, two official plugins are available:
+It uses `useEffect` to fetch data from [thecatapi.](https://thecatapi.com/) after that it shows cards. You click as many cards as possible but never duplicate ones. There are 16 cards hence 16 points to get. `useState` was used for updating data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+After you do click a card it checks if that card was clicked before. `URL` is the unique key here.
 
-## React Compiler
+When you click an image the image dir is shuffled using [Fisher–Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle.) Then [Framer Motion](https://motion.dev/) is used to animate the images moving. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
