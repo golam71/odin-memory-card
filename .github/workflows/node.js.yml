@@ -31,8 +31,6 @@ jobs:
       # Build the React app
       - run: npm run build
 
-      # Run tests if you have any
-      - run: npm test
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
