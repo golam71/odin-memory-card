@@ -37,6 +37,7 @@ export default function Cards({ score, setScore, highScore, setHighScore }) {
       alert(`Your score is ${score}`);
       setScore(0);
       setClicked([]);
+      setCatData(shuffleArray(catData));
       return;
     }
 
