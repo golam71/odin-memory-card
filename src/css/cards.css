@@ -7,4 +7,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   place-items: center;
+  gap: 15px;
+}
+
+html {
+  overflow-anchor: none;
 }
