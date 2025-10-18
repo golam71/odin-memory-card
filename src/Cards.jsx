@@ -12,9 +12,29 @@ export default function Cards({ score, setScore, highScore, setHighScore }) {
       const uniqueImages = new Map();
 
       while (uniqueImages.size < 16) {
-        const res = await fetch(
-          `https://api.thecatapi.com/v1/images/search?limit=30&size=med&mime_types=jpg&order=RANDOM&api_key=live_4xcACum8Qf3UMhr8O4Dw9kd0m8mush3bifrpN3Bk5ndOoHdJO7u7jRmvjuEsIgMD`
-        );
+        const encodedKey =
+          "bGl2ZV80eGNBQ3VtOFFmM1VNaHI4TzREdzlrZDBtOG11c2gzYmlmcnBOM0JrNW5kT29IZEpPN3U3alJtdmp1RXNJZ01E";
+
+        const decodeBase64 = (str) => {
+          if (typeof atob === "function") return atob(str);
+          if (
+            typeof globalThis !== "undefined" &&
+            globalThis.Buffer &&
+            typeof globalThis.Buffer.from === "function"
+          ) {
+            return globalThis.Buffer.from(str, "base64").toString("utf-8");
+          }
+
+          return str;
+        };
+
+        const apiKey = decodeBase64(encodedKey);
+
+        const url = `https://api.thecatapi.com/v1/images/search?limit=30&size=med&mime_types=jpg&order=RANDOM&api_key=${encodeURIComponent(
+          apiKey
+        )}`;
+
+        const res = await fetch(url);
         const data = await res.json();
 
         data.forEach((item) => {

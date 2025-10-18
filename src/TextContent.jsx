@@ -10,7 +10,7 @@ export default function TextContent({ score, highScore }) {
           High Score : <span>{highScore}</span>
         </p>
       </div>
-      <p>Click images to get points but dont click an image twice.</p>
+      <p>Click images to get points but don't click an image twice.</p>
     </>
   );
 }
