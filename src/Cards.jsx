@@ -3,7 +3,7 @@ import shuffleArray from "./shuffle";
 import { useEffect, useState } from "react";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 
-export default function Cards({ count, setCount }) {
+export default function Cards({ score, setScore, highScore, setHighScore }) {
   const [catData, setCatData] = useState([]);
   const [clicked, setClicked] = useState([]);
 
@@ -32,24 +32,31 @@ export default function Cards({ count, setCount }) {
 
   function handleClick(e) {
     const src = e.target.src;
-    setCatData(shuffleArray(catData));
 
     if (clicked.includes(src)) {
-      alert(`Your score is ${count}`);
-      setCount(0);
+      alert(`Your score is ${score}`);
+      setScore(0);
       setClicked([]);
       return;
     }
 
     const updatedClicked = [...clicked, src];
+    const updatedScore = score + 1;
+
     setClicked(updatedClicked);
-    setCount(count + 1);
+    setScore(updatedScore);
+
+    if (updatedScore > highScore) {
+      setHighScore(updatedScore);
+    }
 
     if (updatedClicked.length === 16) {
       alert("You Won the game! Click ok to play again :)");
       setClicked([]);
-      setCount(0);
+      setScore(0);
     }
+
+    setCatData(shuffleArray(catData));
   }
 
   return (
