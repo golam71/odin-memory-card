@@ -1,5 +1,7 @@
 # React memory game
 
+Live website can be found [here](https://golam71.github.io/odin-memory-card/)
+
 ![Preview image of the game](live.png)
 
 It uses `useEffect` to fetch data from [thecatapi.](https://thecatapi.com/) after that it shows cards. You click as many cards as possible but never duplicate ones. There are 16 cards hence 16 points to get. `useState` was used for updating data.
